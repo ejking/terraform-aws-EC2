@@ -6,7 +6,7 @@ variable "input_vars" {
       security_groups   = list(string)
       key_name          = string
       instance_name     = string
-      instance_profile  = string
+      instance_profile  = optional(string)
       user_data         = optional(string, "")
   })
 }
