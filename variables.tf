@@ -49,5 +49,6 @@ variable "instance_profile" {
 variable "user_data" {
   type        = string
   description = "User data to apply on instance"
+  default = ""
 }
 
