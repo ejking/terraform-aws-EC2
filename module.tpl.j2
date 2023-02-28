@@ -4,12 +4,14 @@ module "ec2_{{ resource.instance_name }}" {
   source = "./modules/ec2"
 
   count                  = local.ec2_{{ resource.instance_name }}_count
-  ami                    = "{{ resource.ami }}"
-  instance_type          = "{{ resource.instance_type }}"
-  subnet_ids             = "{{ resource.subnet_ids }}"
+  os_platform            = "{{ resource.os_platform }}"
+  environment            = "{{ resource.environment }}"
+  instance_size          = "{{ resource.instance_size }}"
+  subnet_type            = "{{ resource.subnet_type }}"
   key_name               = "{{ resource.key_name }}"
   user_data              = "{{ resource.user_data }}"
   instance_profile       = "{{ resource.instance_profile }}"
-  security_groups        = {{ resource.security_groups }}
+  security_groups        = "{{ resource.security_groups }}"
   instance_name          = "{{ resource.instance_name }}-${format("%02d", count.index + 1)}"
+  cost_center            = "{{ resource.cost_center }}"
 }
